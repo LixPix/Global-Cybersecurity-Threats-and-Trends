@@ -65,31 +65,44 @@ fig_attack = px.bar(
 fig_attack.update_xaxes(dtick=1, tickformat='d')
 st.plotly_chart(fig_attack, use_container_width=True)
 
-# Financial loss trends
-financial_data = df.groupby('Year')['Financial Loss (in Million $)'].mean().reset_index()
-fig_loss = px.line(
-    financial_data,
+# Target Industry trends - New visualization
+industry_data = df.groupby(['Year', 'Decoded_Industry']).size().unstack(fill_value=0)
+fig_industry = px.bar(
+    industry_data.reset_index(),
     x='Year',
-    y='Financial Loss (in Million $)',
-    title="💰 Average Financial Loss per Year",
-    markers=True
+    y=industry_data.columns.tolist(),
+    title="🎯 Target Industries Over Time",
+    labels={"value": "Number of Incidents", "Year": "Year"},
+    color_discrete_sequence=px.colors.qualitative.Pastel
 )
 # Format year axis to show integers only
-fig_loss.update_xaxes(dtick=1, tickformat='d')
-st.plotly_chart(fig_loss, use_container_width=True)
-
-# Attack Type Trend - Improved with integer years
-attack_trend = df.groupby('Year')['Decoded_Attack'].value_counts().unstack().fillna(0)
-# Convert year index to integer for better display
-attack_trend.index = attack_trend.index.astype(int)
-st.subheader("📈 Attack Types Over Time")
-st.bar_chart(attack_trend)
+fig_industry.update_xaxes(dtick=1, tickformat='d')
+st.plotly_chart(fig_industry, use_container_width=True)
 
 # Financial Loss Trend - Improved with integer years
 financial_trend = df.groupby('Year')['Financial Loss (in Million $)'].mean().reset_index()
 financial_trend['Year'] = financial_trend['Year'].astype(int)
 st.subheader("📊 Average Financial Loss Trends Over Time")
-st.line_chart(financial_trend.set_index('Year'))
+
+# Create Plotly line chart with proper integer year formatting
+fig_financial = px.line(
+    financial_trend,
+    x='Year',
+    y='Financial Loss (in Million $)',
+    title='Average Financial Loss by Year',
+    markers=True
+)
+fig_financial.update_xaxes(
+    dtick=1,  # Show every year
+    tickmode='linear',
+    tickformat='d'  # Display as integers (no decimals)
+)
+fig_financial.update_layout(
+    xaxis_title="Year",
+    yaxis_title="Average Financial Loss (Million $)",
+    showlegend=False
+)
+st.plotly_chart(fig_financial, use_container_width=True)
 
 # Prepare features for ML models
 # Only use encoded columns for categorical features
