@@ -2,7 +2,7 @@
 Most effective way to evaluate this project would be to check the following files in order
 - [ETL_EDA](jupyter_notebooks/ETL_EDA_global_cyberthreats.ipynb) for initial data cleaning and exploration    
 - [ML](jupyter_notebooks/ML_global_cyberthreats.ipynb) for machine learning application to the data set.      
-- [Streamlit cloud dashboard](cyber_dashboard_final.py) for deployment and interactive scenario simulations   
+- [Streamlit cloud dashboard](https://share.streamlit.io/lixpix/global-cybersecurity-threats-and-trends/main/cyber_dashboard_final.py) for deployment and interactive scenario simulations   
 - [Readme file](README.md) where a comprehensive structure of the project is presented
 
 ## **📊 Statistical Foundations Demonstrated**
