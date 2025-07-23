@@ -4,9 +4,34 @@
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+## 🚀 **Dashboard Access**
+
+### 🔗 **Live Interactive Dashboard**
+**🎯 [ACCESS THE CYBER THREAT INSIGHT PORTAL](https://lixpix-global-cybersecurity-threats-and-trends-cyber-dashboard-final.streamlit.app/)**
+
+*Click the link above to explore the interactive dashboard with live data visualisations, machine learning predictions, and scenario simulations.*
+
+> **Note for Assessors:** If the live dashboard link is temporarily unavailable, you can run the dashboard locally using the instructions below, or contact the developer for alternative access.
+
+### 📁 **Alternative Access Methods**
+- **Local Installation:** 
+  ```bash
+  git clone https://github.com/LixPix/Global-Cybersecurity-Threats-and-Trends.git
+  cd Global-Cybersecurity-Threats-and-Trends
+  pip install -r requirements.txt
+  streamlit run cyber_dashboard_final.py
+  ```
 - **Project Assessment Roadmap:** [Read me first](Comprehensive_Assessment_Criteria_Validation.md)
-- **Live Dashboard:** [🔗 Cyber Threat Insight Portal](https://global-cybersecurity-threats.streamlit.app/) | 
-- **Local:** `streamlit run cyber_dashboard_final.py`
+- **Repository:** [GitHub Source Code](https://github.com/LixPix/Global-Cybersecurity-Threats-and-Trends)
+
+### 📊 **What You'll Find in the Dashboard**
+- **🔍 Interactive Data Exploration:** Filter and analyse cybersecurity trends by year, attack type, and industry
+- **🤖 Machine Learning Predictions:** Real-time prediction of attack types, target industries, and financial losses
+- **📈 Dynamic Visualisations:** Interactive charts with grouped bar plots and time series analysis
+- **🎛️ Scenario Simulation:** Input custom parameters to simulate potential cyber attack scenarios
+- **📋 Comprehensive Analytics:** Statistical insights, model performance reports, and strategic recommendations
+
+*💡 **Tip for Assessors:** The dashboard is fully interactive - click on legend items to filter data and explore different perspectives on the cybersecurity landscape.*
 
 ## 📊 Dataset Content
 
