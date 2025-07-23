@@ -1,15 +1,16 @@
 # 🛡️ Global Cybersecurity Threats Analysis and ML Training
 
-**Global Cybersecurity Threats Analysis and ML Training** is data analysis and machine learning platform designed to analyze global cybersecurity incidents from 2015-2024 small dataset sample. The platform provides predictive capabilities for attack types, target industries, and financial losses while offering interactive visualizations for both technical and non-technical audiences.
+**Global Cybersecurity Threats Analysis and M## 📈 Statistical Foundations## 🔬 Analysis Techniques Usedand Data Science Principles Training** is a data analysis and machine learning platform designed to analyse global cybersecurity incidents from 2015-2024 small dataset sample. The platform provides predictive capabilities for attack types, target industries, and financial losses whilst offering interactive visualisations for both technical and non-technical audiences.
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+**Project Assessment Roadmap:** [Read me first](Comprehensive_Assessment_Criteria_Validation.md)
 **Live Dashboard:** [🔗 Cyber Threat Insight Portal](https://global-cybersecurity-threats.streamlit.app/) | **Local:** `streamlit run cyber_dashboard_final.py`
 
 ## 📊 Dataset Content
 
-This project analyzes a small sample: **Global Cybersecurity Threats 2015-2024 dataset** from [Kaggle](https://www.kaggle.com/datasets/atharvasoundankar/global-cybersecurity-threats-2015-2024?resource=download), containing **3,001 cybersecurity incidents** across 10 countries over a decade.
-Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-security-breaches-survey-2024/cyber-security-breaches-survey-2024) over 2000 attacks per day while globaly there are daily estimates in excess of 600 Million.
+This project analyses a small sample: **Global Cybersecurity Threats 2015-2024 dataset** from [Kaggle](https://www.kaggle.com/datasets/atharvasoundankar/global-cybersecurity-threats-2015-2024?resource=download), containing **3,001 cybersecurity incidents** across 10 countries over a decade.
+The [UK alone records](https://www.gov.uk/government/statistics/cyber-security-breaches-survey-2024/cyber-security-breaches-survey-2024) over 2,000 attacks per day whilst globally there are daily estimates in excess of 600 million.
 
 **Dataset Features:**
 - **Countries:** China, India, UK, Germany, France, Australia, Russia, Brazil, Japan, USA
@@ -17,7 +18,7 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 - **Attack Types:** Phishing, Ransomware, DDoS, SQL Injection, Man-in-the-Middle, Malware
 - **Target Industries:** IT, Banking, Healthcare, Education, Government, Telecommunications, Retail
 - **Key Metrics:** Financial Loss (Million $), Affected Users, Resolution Time (Hours)
-- **Security Factors:** Attack Source, Vulnerability Type, Defense Mechanisms
+- **Security Factors:** Attack Source, Vulnerability Type, Defence Mechanisms
 
 **Data Quality:** The dataset was cleaned and processed, removing duplicates and ensuring data integrity for reliable analysis.
 
@@ -25,7 +26,7 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 
 **BR1:** Create predictive models to forecast cyber attack characteristics based on country, year, and security infrastructure factors.
 
-**BR2:** Develop an interactive dashboard that visualizes cybersecurity trends over time for different stakeholders.
+**BR2:** Develop an interactive dashboard that visualises cybersecurity trends over time for different stakeholders.
 
 **BR3:** Provide actionable insights for cybersecurity investment and risk management decisions.
 
@@ -79,8 +80,8 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 - Feature importance analysis
 
 **5. Dashboard Development**
-- Interactive visualization design
-- User experience optimization
+- Interactive visualisation design
+- User experience optimisation
 - Real-time prediction interface
 - Deployment preparation
 
@@ -96,13 +97,13 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 
 ## 🗺️ Business Requirements to Data Visualizations Mapping
 
-| Business Requirement | Data Visualization | Purpose |
+| Business Requirement | Data Visualisation | Purpose |
 |----------------------|-------------------|---------|
-| **BR1: Predictive Modeling** | Interactive Prediction Form | Enables scenario simulation and attack outcome forecasting |
+| **BR1: Predictive Modelling** | Interactive Prediction Form | Enables scenario simulation and attack outcome forecasting |
 | **BR2: Trend Analysis** | Attack Types Over Time Chart | Shows evolution of cyber threat landscape |
 | **BR2: Industry Insights** | Target Industries Over Time Chart | Reveals sectoral vulnerability patterns |
 | **BR3: Financial Planning** | Financial Loss Trends Chart | Supports budget allocation for cybersecurity |
-| **BR4: Risk Assessment** | Feature Importance Analysis | Identifies key risk factors for prioritization |
+| **BR4: Risk Assessment** | Feature Importance Analysis | Identifies key risk factors for prioritisation |
 | **BR5: Strategic Recommendations** | ML Analysis Report | Provides data-driven action items |
 
 ## � Statistical Foundations and Data Science Principles
@@ -127,10 +128,10 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 - **Normal Distribution:** Applied for continuous variables like financial losses
 - **Classification Probabilities:** Model confidence scores for prediction uncertainty
 
-### **Statistical Rigor in Implementation**
+### **Statistical Rigour in Implementation**
 
 **Sample Size Validation:** 3,001 incidents provide sufficient power for statistical inference
-**Cross-Validation:** K-fold validation ensures model generalizability
+**Cross-Validation:** K-fold validation ensures model generalisability
 **Significance Testing:** All reported findings include p-values and confidence intervals
 **Effect Size Reporting:** Practical significance assessed alongside statistical significance
 
@@ -184,8 +185,8 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 
 **AI-Assisted Development Process:**
 
-**Code Generation and Optimization:**
-- **Tool Used:** GitHub Copilot and large language models for code suggestions and optimization
+**Code Generation and Optimisation:**
+- **Tool Used:** GitHub Copilot and large language models for code suggestions and optimisation
 - **Human Oversight:** All AI-generated code reviewed, validated, and tested by human developers
 - **Quality Assurance:** Systematic validation of AI suggestions against coding best practices
 - **Documentation:** Clear attribution of AI-assisted vs. human-generated code components
@@ -197,8 +198,8 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 - **Accuracy Verification:** Cross-validation of AI-generated content with established statistical literature
 
 **Design Thinking and UX:**
-- **Dashboard Design:** AI-supported ideation for user interface and visualization layouts
-- **User Experience Flow:** AI assistance in optimizing information architecture and navigation
+- **Dashboard Design:** AI-supported ideation for user interface and visualisation layouts
+- **User Experience Flow:** AI assistance in optimising information architecture and navigation
 - **Accessibility:** AI suggestions for inclusive design and clear communication patterns
 - **Interactive Features:** AI-guided development of user-friendly prediction interfaces
 
@@ -239,7 +240,7 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 ### **Comprehensive Ethical Framework**
 
 **Data Ethics:**
-- **Privacy Protection:** Dataset uses anonymized, aggregated data without identifying specific organizations
+- **Privacy Protection:** Dataset uses anonymised, aggregated data without identifying specific organisations
 - **Informed Consent:** Data sourced from publicly available, ethically collected cybersecurity incident reports
 - **Data Integrity:** Transparent documentation of all data transformations and limitations
 - **Responsible Disclosure:** Focus on defensive insights rather than attack methodologies
@@ -267,8 +268,8 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 ### **Stakeholder Impact Assessment**
 
 **Positive Impacts:**
-- **Enhanced Security Awareness:** Evidence-based threat intelligence for organizations
-- **Resource Optimization:** Data-driven cybersecurity investment decisions
+- **Enhanced Security Awareness:** Evidence-based threat intelligence for organisations
+- **Resource Optimisation:** Data-driven cybersecurity investment decisions
 - **Educational Value:** Statistical literacy demonstration in cybersecurity context
 - **Research Advancement:** Methodological contributions to cybersecurity data science
 
@@ -280,8 +281,8 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 
 ### **Data Privacy & Security**
 
-- **Issue:** Cybersecurity data contains sensitive information about organizational vulnerabilities
-- **Mitigation:** Dataset uses anonymized, aggregated data without identifying specific organizations or individuals
+- **Issue:** Cybersecurity data contains sensitive information about organisational vulnerabilities
+- **Mitigation:** Dataset uses anonymised, aggregated data without identifying specific organisations or individuals
 - **Compliance:** Adherence to data protection principles and ethical research standards
 
 ### **Bias Considerations**
@@ -295,7 +296,7 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 
 - **Industry Balance:** Analysis includes diverse sectors to avoid over-representation
 - **Attack Type Coverage:** Comprehensive coverage of major attack vectors for balanced assessment
-- **Inclusive Analysis:** Consideration of impacts across different organizational sizes and capabilities
+- **Inclusive Analysis:** Consideration of impacts across different organisational sizes and capabilities
 - **Cultural Sensitivity:** Recognition of different cybersecurity cultures and reporting practices
 
 ### **Responsible AI Implementation**
@@ -306,110 +307,6 @@ Actually [UK alone records](https://www.gov.uk/government/statistics/cyber-secur
 - **Continuous Monitoring:** Ongoing assessment of model performance and ethical implications
 - **Educational Purpose:** Clear positioning as learning tool rather than production security system
 
-## � **Assessment Criteria Compliance & Educational Excellence**
-
-### **Comprehensive Academic Standards Achievement**
-
-This project demonstrates exceptional compliance with statistical education and data science assessment criteria across all required dimensions:
-
-#### **📊 Statistical Foundations Mastery**
-
-**Core Concepts Implementation:**
-- ✅ **Mean, Median, Mode:** Comprehensive central tendency analysis with practical interpretation
-- ✅ **Standard Deviation & Variance:** Variability quantification with real-world cybersecurity applications  
-- ✅ **Hypothesis Testing:** Systematic statistical inference with proper significance testing
-- ✅ **Probability Theory:** Conditional probability calculations and uncertainty quantification
-- ✅ **Confidence Intervals:** 95% confidence intervals for population parameter estimation
-- ✅ **Distribution Analysis:** Normal distribution properties and 68-95-99.7 rule validation
-
-**Advanced Statistical Applications:**
-- ✅ **ANOVA:** Multi-group comparisons across attack types and countries
-- ✅ **Chi-square Testing:** Independence analysis between categorical variables
-- ✅ **Correlation Analysis:** Linear relationship quantification between numerical variables
-- ✅ **Time Series Analysis:** Trend identification and pattern recognition over time
-
-#### **🔬 Data Analysis Excellence**
-
-**Methodological Rigor:**
-- ✅ **CRISP-DM Framework:** Industry-standard data science methodology implementation
-- ✅ **Feature Engineering:** Systematic data preprocessing with clear documentation
-- ✅ **Cross-Validation:** Robust model validation using train-test-validation splits
-- ✅ **Performance Metrics:** Comprehensive evaluation using multiple relevant measures
-- ✅ **Model Interpretation:** Feature importance analysis with business context
-
-**Practical Applications:**
-- ✅ **Predictive Modeling:** Random Forest implementation for classification and regression
-- ✅ **Data Manipulation:** Advanced pandas operations with efficient data processing
-- ✅ **Visualization:** Professional-grade charts with Plotly and statistical graphics
-- ✅ **Statistical Computing:** Scipy integration for advanced statistical calculations
-
-#### **🛡️ Ethics and Responsible AI Standards**
-
-**Comprehensive Ethical Framework:**
-- ✅ **Data Privacy Protection:** Anonymized data usage with organizational confidentiality respect
-- ✅ **Bias Mitigation:** Regular assessment and correction of discriminatory patterns
-- ✅ **Transparency:** Clear documentation of AI assistance and human oversight processes
-- ✅ **Responsible Disclosure:** Defensive-focused insights without attack facilitation
-- ✅ **Stakeholder Impact Assessment:** Consideration of positive and negative implications
-
-**AI Ethics Implementation:**
-- ✅ **Human Oversight:** Expert validation of all AI-generated content and code
-- ✅ **Accountability:** Clear attribution of responsibilities and decision-making processes
-- ✅ **Educational Integrity:** Transparent use of AI tools while maintaining academic honesty
-- ✅ **Continuous Monitoring:** Ongoing assessment of ethical implications and model fairness
-
-#### **💻 Code Quality and Professional Development**
-
-**Programming Excellence:**
-- ✅ **Best Practices:** Industry-standard coding conventions with comprehensive documentation
-- ✅ **Error Handling:** Robust exception management and input validation systems
-- ✅ **Modularity:** Reusable functions with clear code organization and structure
-- ✅ **Testing Framework:** Systematic validation of functions and model performance
-- ✅ **Version Control:** Systematic tracking of changes and collaborative development
-
-**Documentation Standards:**
-- ✅ **Comprehensive Comments:** Clear explanations of complex logic and statistical methodology
-- ✅ **User-Friendly Design:** Progressive disclosure and educational formatting throughout
-- ✅ **Reproducibility:** Complete environment and dependency documentation
-- ✅ **Academic Rigor:** Proper citation and attribution of sources and AI assistance
-
-#### **🎯 Educational Objectives & Learning Outcomes**
-
-**Statistical Literacy Development:**
-- ✅ **Conceptual Mastery:** Deep understanding of statistical principles with practical applications
-- ✅ **Critical Thinking:** Ability to evaluate statistical claims and interpret uncertainty measures
-- ✅ **Communication Skills:** Clear presentation of technical concepts to diverse audiences
-- ✅ **Quality Assurance:** Understanding of statistical rigor and methodological validation
-
-**Professional Competency Achievement:**
-- ✅ **Industry Standards:** Adherence to data science and cybersecurity best practices
-- ✅ **Collaborative Skills:** Documentation enabling effective team collaboration
-- ✅ **Ethical Decision-Making:** Robust framework for responsible data science practice
-- ✅ **Continuous Learning:** Integration of AI tools with human expertise and oversight
-
-### **🏆 Excellence Summary**
-
-| Assessment Dimension | Compliance Level | Evidence Quality | Educational Impact |
-|---------------------|------------------|------------------|-------------------|
-| **Statistical Foundations** | **100% Complete** | **Comprehensive** | **Excellent** |
-| **Data Analysis Methods** | **100% Complete** | **Advanced** | **Excellent** |  
-| **Ethics Implementation** | **100% Complete** | **Robust** | **Excellent** |
-| **Code Quality Standards** | **100% Complete** | **Professional** | **Excellent** |
-| **AI Integration Ethics** | **100% Complete** | **Transparent** | **Excellent** |
-| **Documentation Excellence** | **100% Complete** | **Thorough** | **Excellent** |
-| **Learning Objectives** | **100% Complete** | **Comprehensive** | **Excellent** |
-
-### **🚀 Project Impact & Contribution**
-
-**Academic Excellence:** This project serves as a comprehensive example of statistical education excellence, demonstrating practical application of theoretical concepts in real-world cybersecurity contexts.
-
-**Professional Development:** The analysis provides a complete framework for ethical data science practice, code quality standards, and responsible AI integration that students can apply in professional environments.
-
-**Industry Relevance:** The cybersecurity focus ensures practical applicability while maintaining academic rigor, bridging the gap between theoretical statistical education and professional data science practice.
-
-**Methodological Contribution:** The systematic integration of statistical foundations, ethical considerations, and AI tools provides a replicable framework for similar educational projects.
-
-This comprehensive analysis achieves exceptional standards across all assessment criteria, demonstrating mastery of statistical foundations, ethical data science practices, advanced analytical methods, and professional development standards required for excellence in modern data science education.
 
 ## 🎨 Dashboard Design
 
@@ -417,7 +314,7 @@ This comprehensive analysis achieves exceptional standards across all assessment
 
 **Page Structure:** Single-page application with logical section flow
 1. **Header Section:** Project introduction and user story
-2. **Visualization Section:** Three primary interactive charts
+2. **Visualisation Section:** Three primary interactive charts
 3. **Analysis Section:** ML model performance and insights
 4. **Prediction Interface:** Interactive scenario simulation
 5. **Detailed Findings:** Comprehensive analysis report
@@ -434,10 +331,10 @@ This comprehensive analysis achieves exceptional standards across all assessment
 
 ### **Design Principles**
 
-**Progressive Disclosure:** Information organized from high-level insights to detailed technical analysis
+**Progressive Disclosure:** Information organised from high-level insights to detailed technical analysis
 **Responsive Design:** Charts and components adapt to different screen sizes
-**Color Psychology:** Distinct color schemes for different chart types to avoid confusion
-**Accessibility:** Clear labeling and consistent navigation patterns
+**Colour Psychology:** Distinct colour schemes for different chart types to avoid confusion
+**Accessibility:** Clear labelling and consistent navigation patterns
 
 ### **Audience-Specific Communication**
 
@@ -473,9 +370,9 @@ This comprehensive analysis achieves exceptional standards across all assessment
 - **Solution:** Comprehensive documentation review and community resource consultation
 - **Outcome:** Successfully implemented multi-component prediction interface
 
-**Plotly Color Scheme Management:** Limited experience with advanced color customization
-- **Solution:** Systematic exploration of Plotly color palettes and scheme documentation
-- **Outcome:** Implemented distinct, accessible color schemes for different chart types
+**Plotly Colour Scheme Management:** Limited experience with advanced colour customisation
+- **Solution:** Systematic exploration of Plotly colour palettes and scheme documentation
+- **Outcome:** Implemented distinct, accessible colour schemes for different chart types
 
 ## 🚀 Development Roadmap
 
@@ -539,9 +436,9 @@ The project is deployed using **Streamlit Cloud** for seamless integration with 
    - Environment variables configured through Streamlit Cloud interface
    - Custom domain mapping available for production deployments
 
-4. **Performance Optimization**
+4. **Performance Optimisation**
    - Implemented data caching with `@st.cache_data` decorators
-   - Optimized chart rendering for faster load times
+   - Optimised chart rendering for faster load times
    - Streamlined requirements to essential packages only
 
 **Advantages of Streamlit Cloud:**
@@ -604,7 +501,7 @@ import seaborn as sns
 
 **Machine Learning Implementation:** Scikit-learn documentation and community best practices for ensemble methods and model evaluation
 
-**Dashboard Framework:** Streamlit official documentation for interactive component development and deployment optimization
+**Dashboard Framework:** Streamlit official documentation for interactive component development and deployment optimisation
 
 **Statistical Analysis Methods:** Pandas and NumPy documentation for data manipulation and statistical computing approaches
 
@@ -614,13 +511,13 @@ import seaborn as sns
 
 **Deployment Guide:** Streamlit Cloud documentation for seamless Python application deployment and GitHub integration
 
-**Code Optimization:** Python PEP 8 style guide and best practices for maintainable code development
+**Code Optimisation:** Python PEP 8 style guide and best practices for maintainable code development
 
 ### Media and Assets
 
 **Icons and Symbols:** Streamlit emoji support for enhanced user interface design
 
-**Color Schemes:** Plotly qualitative color palettes for accessible and distinctive data visualization
+**Colour Schemes:** Plotly qualitative colour palettes for accessible and distinctive data visualisation
 
 **Layout Design:** CSS Grid and Flexbox principles adapted for Streamlit component arrangement
 
@@ -644,7 +541,7 @@ This project follows the **Cross-Industry Standard Process for Data Mining (CRIS
 - **Business Questions:** 
   - Which attack types are most likely to target specific industries?
   - What factors contribute to higher financial losses?
-  - How can organizations prepare for emerging threats?
+  - How can organisations prepare for emerging threats?
 
 ### **2. Data Understanding**
 - **Data Source:** Kaggle Global Cybersecurity Threats 2015-2024
@@ -655,10 +552,10 @@ This project follows the **Cross-Industry Standard Process for Data Mining (CRIS
 ### **3. Data Preparation**
 - **Data Cleaning:** Duplicate removal, data type validation
 - **Feature Engineering:** Label encoding for categorical variables
-- **Feature Selection:** Country, Attack Source, Vulnerability Type, Defense Mechanism, Year, Users, Resolution Time
+- **Feature Selection:** Country, Attack Source, Vulnerability Type, Defence Mechanism, Year, Users, Resolution Time
 - **Data Splitting:** 80% training, 20% testing with stratified sampling
 
-### **4. Modeling**
+### **4. Modelling**
 - **Algorithms Selected:** Random Forest (classification & regression), evaluated against Linear Regression, SVM
 - **Model Rationale:** Random Forest chosen for handling mixed data types and feature importance
 - **Cross-Validation:** 5-fold stratified cross-validation implemented
@@ -668,7 +565,7 @@ This project follows the **Cross-Industry Standard Process for Data Mining (CRIS
 - **Classification Metrics:** Accuracy, Precision, Recall, F1-Score
 - **Regression Metrics:** R², MAE, RMSE
 - **Business Impact Assessment:** Model predictions align with industry expert knowledge
-- **Model Validation:** Hold-out test set performance confirms generalization
+- **Model Validation:** Hold-out test set performance confirms generalisation
 
 ### **6. Deployment**
 - **Production Environment:** Streamlit Cloud with automatic CI/CD
@@ -710,7 +607,7 @@ This project follows the **Cross-Industry Standard Process for Data Mining (CRIS
 2. **Attack Source** (22.1% importance) - Actor type significantly affects financial impact
 3. **Security Vulnerability** (19.7% importance) - Vulnerability type drives attack success
 4. **Year** (15.4% importance) - Temporal patterns show evolving threat landscape
-5. **Defense Mechanism** (14.5% importance) - Security controls effectiveness varies
+5. **Defence Mechanism** (14.5% importance) - Security controls effectiveness varies
 
 ### **Model Limitations & Assumptions**
 
@@ -730,13 +627,13 @@ This project follows the **Cross-Industry Standard Process for Data Mining (CRIS
 ### **Quantified Business Benefits**
 
 **Risk Reduction:**
-- **Early Warning System:** 85% accuracy in predicting attack types enables proactive defense
-- **Resource Optimization:** Financial loss prediction (R²=0.78) supports budget allocation
+- **Early Warning System:** 85% accuracy in predicting attack types enables proactive defence
+- **Resource Optimisation:** Financial loss prediction (R²=0.78) supports budget allocation
 - **Industry-Specific Insights:** Targeted recommendations reduce sector-specific vulnerabilities
 
 **Cost Savings Potential:**
 - **Prevention Focus:** Identifying high-risk scenarios can prevent average $52M losses
-- **Response Optimization:** Resolution time insights can reduce incident duration by 20-30%
+- **Response Optimisation:** Resolution time insights can reduce incident duration by 20-30%
 - **Strategic Planning:** Multi-year trend analysis supports long-term security investments
 
 ### **Stakeholder Value Delivery**
@@ -747,12 +644,12 @@ This project follows the **Cross-Industry Standard Process for Data Mining (CRIS
 - Industry benchmarking and competitive intelligence
 
 **Security Teams:**
-- Tactical threat intelligence and attack vector prioritization
-- Resource allocation guidance for defense mechanisms
-- Performance metrics for incident response optimization
+- Tactical threat intelligence and attack vector prioritisation
+- Resource allocation guidance for defence mechanisms
+- Performance metrics for incident response optimisation
 
 **IT Departments:**
-- Technical vulnerability prioritization and patch management
+- Technical vulnerability prioritisation and patch management
 - Infrastructure hardening recommendations
 - Technology investment justification
 
@@ -771,7 +668,7 @@ This project follows the **Cross-Industry Standard Process for Data Mining (CRIS
 - ✅ Logical relationship validation (resolution time vs complexity)
 
 **Consistency Verification:**
-- ✅ Standardized country and industry naming
+- ✅ Standardised country and industry naming
 - ✅ Uniform currency and time units
 - ✅ Consistent attack type taxonomies
 

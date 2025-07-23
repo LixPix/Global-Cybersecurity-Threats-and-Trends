@@ -1,9 +1,9 @@
 # 🎓 **Comprehensive Assessment Criteria Validation**
-Most effective way to evaluate this project would be to check the folowing files in order
+Most effective way to evaluate this project would be to check the following files in order
 - [ETL_EDA](jupyter_notebooks/ETL_EDA_global_cyberthreats.ipynb) for initial data cleaning and exploration
-- [ML](jupyter_notebooks/ML_global_cyberthreats.ipynb) for machine learning application to the data set. Also at the end of the file it is this same Assessment Criteria Validation as here to wrap up and conclude.
+- [ML](jupyter_notebooks/ML_global_cyberthreats.ipynb) for machine learning application to the data set. 
 - [Streamlit cloud dashboard](cyber_dashboard_final.py) for deployment and interactive scenario simulations
-- [Readme file](README.md) where a comprehensive structure of the project is lined up
+- [Readme file](README.md) where a comprehensive structure of the project is presented
 
 ## **📊 Statistical Foundations Demonstrated**
 

@@ -51,7 +51,7 @@ Whether you're a **technical user** seeking to model attack outcomes, or a **non
 df['Decoded_Attack'] = df['Attack Type']
 df['Decoded_Industry'] = df['Target Industry']
 
-# Attack trends - Improved visualization with stacked bar chart
+# Attack trends - Improved visualisation with stacked bar chart
 attack_data = df.groupby(['Year', 'Decoded_Attack']).size().unstack(fill_value=0)
 fig_attack = px.bar(
     attack_data.reset_index(),
@@ -215,13 +215,13 @@ findings_text = f"""
 
 ## 🎯 **Strategic Recommendations**
 
-1. **Predictive Modeling:** The models show moderate to good performance, suggesting that cyber attack patterns are partially predictable based on country, timing, and security infrastructure factors.
+1. **Predictive Modelling:** The models show moderate to good performance, suggesting that cyber attack patterns are partially predictable based on country, timing, and security infrastructure factors.
 
 2. **Industry Focus:** {industry_targeting['Financial Loss (in Million $)'].idxmax()} sector requires enhanced security investments given highest average financial losses.
 
 3. **Temporal Patterns:** Year-over-year analysis reveals evolving attack strategies, with {most_common_attacks_by_year.value_counts().index[0]} being the most persistent threat type.
 
-4. **Response Optimization:** Industries with longer resolution times should adopt faster incident response protocols similar to {industry_targeting['Incident Resolution Time (in Hours)'].idxmin()} sector.
+4. **Response Optimisation:** Industries with longer resolution times should adopt faster incident response protocols similar to {industry_targeting['Incident Resolution Time (in Hours)'].idxmin()} sector.
 
 ## ⚠️ **Model Limitations**
 
