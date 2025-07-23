@@ -150,7 +150,7 @@ web: sh setup.sh && streamlit run cyber_dashboard_final.py --server.port=$PORT -
 
 ## 🌐 **External Access URL**
 
-**Live Dashboard:** `https://global-cybersecurity-dashboard.streamlit.app/`
+**Live Dashboard:** `https://share.streamlit.io/lixpix/global-cybersecurity-threats-and-trends/main/cyber_dashboard_final.py`
 
 **Features Available Externally:**
 - ✅ Interactive data filtering and visualization
@@ -173,7 +173,7 @@ web: sh setup.sh && streamlit run cyber_dashboard_final.py --server.port=$PORT -
 **For Assessors:**
 If you experience any issues accessing the dashboard:
 
-1. **Primary URL:** https://global-cybersecurity-dashboard.streamlit.app/
+1. **Primary URL:** https://share.streamlit.io/lixpix/global-cybersecurity-threats-and-trends/main/cyber_dashboard_final.py
 2. **Backup:** Run locally using installation instructions in README.md
 3. **Repository:** https://github.com/LixPix/Global-Cybersecurity-Threats-and-Trends
 
