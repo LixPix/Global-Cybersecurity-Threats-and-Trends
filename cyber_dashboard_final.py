@@ -17,8 +17,17 @@ from sklearn.metrics import classification_report, mean_absolute_error, accuracy
 # load and preprocess data
 df = pd.read_csv("data/clean_global_cybersecurity_threats.csv")
 
-# encode data
+# Clean and ensure proper data types
 df = df.ffill()  # Updated pandas syntax for forward fill
+
+# Convert numeric columns to proper types
+numeric_columns = ['Year', 'Financial Loss (in Million $)', 'Number of Affected Users', 'Incident Resolution Time (in Hours)']
+for col in numeric_columns:
+    if col in df.columns:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
+
+# Fill any remaining NaN values
+df = df.fillna(0)
 
 label_encoders = {}
 for col in df.select_dtypes(include='object').columns:
@@ -30,9 +39,11 @@ for col in df.select_dtypes(include='object').columns:
 with st.expander("🔍 Data Structure Information (Click to expand)"):
     st.write("**Available columns:**", df.columns.tolist())
     st.write("**Data types:**")
-    st.write(df.dtypes)
+    st.text(str(df.dtypes))
     st.write("**First few rows of encoded data:**")
-    st.write(df[[col for col in df.columns if '_encoded' in col]].head())
+    encoded_cols = [col for col in df.columns if '_encoded' in col]
+    if encoded_cols:
+        st.dataframe(df[encoded_cols].head(), use_container_width=True)
 
 # Streamlit Dashboard
 st.title("🛡️ Cyber Threat Insight Portal")
@@ -153,9 +164,10 @@ features = pd.concat([
 # Feature validation in collapsible section
 with st.expander("⚙️ Model Features Information (Click to expand)"):
     st.write("**Features data types:**")
-    st.write(features.dtypes)
+    st.text(str(features.dtypes))
     st.write("**Features shape:**", features.shape)
-    st.write("**Any non-numeric data:**", features.select_dtypes(include=['object']).columns.tolist())
+    st.write("**Any non-numeric data:**", 
+             features.select_dtypes(include=['object']).columns.tolist())
 
 # Target variables
 target_attack = df['Attack Type_encoded']
