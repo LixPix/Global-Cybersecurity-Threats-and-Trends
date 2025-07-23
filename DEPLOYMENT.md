@@ -27,16 +27,25 @@
 
 ### **3. Configuration Files** ✅
 
-**requirements.txt** (Already configured):
+**requirements.txt** (Updated for Python 3.11 compatibility):
 ```txt
-numpy==1.26.1
-pandas==2.1.1
-plotly==5.17.0
-streamlit==1.40.2
-scikit-learn==1.3.1
-feature-engine==1.6.1
-imbalanced-learn==0.11.0
-xgboost==1.7.6
+streamlit>=1.31.0
+pandas>=2.0.0
+numpy>=1.24.0
+plotly>=5.15.0
+scikit-learn>=1.3.0
+matplotlib>=3.6.0
+seaborn>=0.12.0
+```
+
+**runtime.txt** (Python version specification):
+```txt
+python-3.11
+```
+
+**.python-version** (Local development):
+```txt
+3.11
 ```
 
 **.streamlit/config.toml** (Already configured):
@@ -90,7 +99,44 @@ web: sh setup.sh && streamlit run cyber_dashboard_final.py --server.port=$PORT -
    - Use only plotly for visualizations
    - Test locally before deploying
 
-### **6. Monitoring & Maintenance**
+### **6. Troubleshooting Deployment Issues**
+
+**Common Issues and Solutions:**
+
+1. **Python Version Compatibility:**
+   ```
+   Error: numpy==1.26.1 not compatible with Python 3.13
+   Solution: Use Python 3.11 (specified in runtime.txt)
+   ```
+
+2. **Package Conflicts:**
+   ```
+   Error: scikit-learn version conflicts
+   Solution: Use flexible version ranges (>=) instead of exact versions
+   ```
+
+3. **Missing Dependencies:**
+   ```
+   Error: No module named 'cgi' (htmlmin/ydata-profiling)
+   Solution: Removed problematic packages, using core libraries only
+   ```
+
+4. **Build Failures:**
+   - Check logs in Streamlit Cloud dashboard
+   - Verify all files are committed and pushed to GitHub
+   - Ensure data files are in correct paths (data/ directory)
+
+5. **Performance Issues:**
+   - Use st.cache_data for data loading
+   - Optimize large file operations
+   - Monitor memory usage
+
+**Deployment Status Check:**
+- Visit: `https://share.streamlit.io/` → Your Apps
+- Check build logs for detailed error messages
+- Restart app if needed from dashboard
+
+### **7. Monitoring & Maintenance**
 
 **Auto-Deploy:**
 - Connected to GitHub repository
