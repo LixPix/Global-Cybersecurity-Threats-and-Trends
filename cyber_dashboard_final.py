@@ -47,6 +47,78 @@ Whether you're a **technical user** seeking to model attack outcomes, or a **non
 - 🧠 Decode complex trends into clear visuals
 """)
 
+# 📊 Statistical Measures Dashboard Section
+st.header("📊 Key Statistical Measures")
+
+# Create columns for statistical metrics
+col1, col2, col3, col4 = st.columns(4)
+
+# Financial Loss Statistics
+financial_mean = df['Financial Loss (in Million $)'].mean()
+financial_median = df['Financial Loss (in Million $)'].median()
+financial_std = df['Financial Loss (in Million $)'].std()
+financial_var = df['Financial Loss (in Million $)'].var()
+
+with col1:
+    st.metric(
+        label="💰 Mean Financial Loss",
+        value=f"${financial_mean:.1f}M",
+        help="Average financial loss across all cyber incidents"
+    )
+    
+with col2:
+    st.metric(
+        label="📊 Median Financial Loss", 
+        value=f"${financial_median:.1f}M",
+        help="Middle value of financial losses (less affected by outliers)"
+    )
+    
+with col3:
+    st.metric(
+        label="📈 Standard Deviation",
+        value=f"${financial_std:.1f}M", 
+        help="Measure of variability in financial losses"
+    )
+    
+with col4:
+    st.metric(
+        label="📉 Variance",
+        value=f"${financial_var:.0f}M²",
+        help="Square of standard deviation, shows data spread"
+    )
+
+# Additional Statistics by Attack Type
+st.subheader("📋 Statistical Summary by Attack Type")
+
+# Calculate statistics by attack type
+attack_stats = df.groupby('Attack Type')['Financial Loss (in Million $)'].agg([
+    'count', 'mean', 'median', 'std', 'min', 'max'
+]).round(2)
+
+attack_stats.columns = ['Count', 'Mean ($M)', 'Median ($M)', 'Std Dev ($M)', 'Min ($M)', 'Max ($M)']
+st.dataframe(attack_stats, use_container_width=True)
+
+# Statistical Insights
+st.subheader("🔍 Statistical Insights")
+
+# Calculate coefficient of variation for each attack type
+cv_data = []
+for attack_type in df['Attack Type'].unique():
+    subset = df[df['Attack Type'] == attack_type]['Financial Loss (in Million $)']
+    if len(subset) > 1 and subset.mean() > 0:
+        cv = (subset.std() / subset.mean()) * 100
+        cv_data.append({'Attack Type': attack_type, 'Coefficient of Variation (%)': cv})
+
+cv_df = pd.DataFrame(cv_data)
+if not cv_df.empty:
+    fig_cv = px.bar(cv_df, x='Attack Type', y='Coefficient of Variation (%)',
+                    title='Financial Loss Variability by Attack Type',
+                    labels={'Coefficient of Variation (%)': 'CV (%)'})
+    fig_cv.update_layout(xaxis_tickangle=-45)
+    st.plotly_chart(fig_cv, use_container_width=True)
+    
+    st.info("💡 **Coefficient of Variation** measures relative variability. Higher values indicate more unpredictable financial losses for that attack type.")
+
 # Decode for plotting
 df['Decoded_Attack'] = df['Attack Type']
 df['Decoded_Industry'] = df['Target Industry']
