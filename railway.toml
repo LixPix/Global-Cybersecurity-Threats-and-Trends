@@ -1,1 +1,0 @@
-web: streamlit run cyber_dashboard_final.py --server.port $PORT --server.headless true

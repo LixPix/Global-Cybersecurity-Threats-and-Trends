@@ -244,7 +244,7 @@ The [UK alone records](https://www.gov.uk/government/statistics/cyber-security-b
 
 **Code Generation and Optimisation:**
 - **Tool Used:** GitHub Copilot and large language models for code suggestions and optimisation
-- **Human Oversight:** All AI-generated code reviewed, validated, and tested by human developers
+- **Human Oversight:** All AI-generated code reviewed, validated, and personally tested 
 - **Quality Assurance:** Systematic validation of AI suggestions against coding best practices
 - **Documentation:** Clear attribution of AI-assisted vs. human-generated code components
 
@@ -262,7 +262,7 @@ The [UK alone records](https://www.gov.uk/government/statistics/cyber-security-b
 
 **Ethical AI Implementation Standards:**
 - **Transparency:** Full disclosure of AI tool usage in development process
-- **Accountability:** Human responsibility maintained for all final outputs and decisions
+- **Accountability:** Personal responsibility maintained for all final outputs and decisions
 - **Bias Awareness:** Regular assessment of AI-generated content for potential biases
 - **Educational Integrity:** AI used as a learning tool while maintaining academic honesty
 
