@@ -7,7 +7,7 @@
 ## 🚀 **Live Dashboard Access**
 
 ### 🔗 **External Public Dashboard**
-**🎯 [OPEN CYBER THREAT DASHBOARD](https://global-cybersecurity-dashboard.streamlit.app/)**
+**🎯 [OPEN CYBER THREAT DASHBOARD](https://share.streamlit.io/lixpix/global-cybersecurity-threats-and-trends/main/cyber_dashboard_final.py)**
 
 *📱 **Accessible from anywhere** - This link works externally for assessors and stakeholders to view the interactive dashboard with real-time data analysis.*
 
