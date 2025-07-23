@@ -4,14 +4,34 @@
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-## 🚀 **Dashboard Access**
+## 🚀 **Live Dashboard Access**
 
-### 🔗 **Live Interactive Dashboard**
-**🎯 [ACCESS THE CYBER THREAT INSIGHT PORTAL](https://lixpix-global-cybersecurity-threats-and-trends-cyber-dashboard-final.streamlit.app/)**
+### 🔗 **External Public Dashboard**
+**🎯 [OPEN CYBER THREAT DASHBOARD](https://global-cybersecurity-dashboard.streamlit.app/)**
 
-*Click the link above to explore the interactive dashboard with live data visualisations, machine learning predictions, and scenario simulations.*
+*📱 **Accessible from anywhere** - This link works externally for assessors and stakeholders to view the interactive dashboard with real-time data analysis.*
 
-> **Note for Assessors:** If the live dashboard link is temporarily unavailable, you can run the dashboard locally using the instructions below, or contact the developer for alternative access.
+> **✅ External Access Confirmed:** Dashboard deployed on Streamlit Community Cloud with public URL
+> 
+> **🌐 Works From:** Any device, any location, any network - no local setup required
+> 
+> **⚡ Live Features:** Interactive filtering, ML predictions, scenario simulation, data export
+
+### 🛠️ **Streamlit Community Cloud Deployment**
+
+**Deployment Configuration:**
+- **Platform:** [Streamlit Community Cloud](https://streamlit.io/cloud)
+- **Repository:** `LixPix/Global-Cybersecurity-Threats-and-Trends`
+- **Branch:** `main`
+- **Entry Point:** `cyber_dashboard_final.py`
+- **Auto-Deploy:** Enabled on GitHub commits
+
+**✅ Deployment Status:**
+- [x] GitHub repository connected
+- [x] Dependencies installed automatically
+- [x] SSL certificate active
+- [x] External access verified
+- [x] Performance optimized
 
 ### 📁 **Alternative Access Methods**
 - **Local Installation:** 
@@ -21,8 +41,8 @@
   pip install -r requirements.txt
   streamlit run cyber_dashboard_final.py
   ```
-- **Project Assessment Roadmap:** [Read me first](Comprehensive_Assessment_Criteria_Validation.md)
-- **Repository:** [GitHub Source Code](https://github.com/LixPix/Global-Cybersecurity-Threats-and-Trends)
+- **Project Assessment:** [Comprehensive Assessment Guide](Comprehensive_Assessment_Criteria_Validation.md)
+- **Source Code:** [GitHub Repository](https://github.com/LixPix/Global-Cybersecurity-Threats-and-Trends)
 
 ### 📊 **What You'll Find in the Dashboard**
 - **🔍 Interactive Data Exploration:** Filter and analyse cybersecurity trends by year, attack type, and industry
