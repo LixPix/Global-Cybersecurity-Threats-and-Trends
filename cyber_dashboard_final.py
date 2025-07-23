@@ -363,8 +363,12 @@ with st.form("prediction_form"):
             'defense': selected_defense,
             'user_input': user_input
         }
+        st.session_state.submitted = True
 
-if submitted:
+# Check if form was submitted
+if hasattr(st.session_state, 'submitted') and st.session_state.submitted:
+    user_input = st.session_state.form_data['user_input']
+    
     # Create input dataframe with correct column order
     input_df = pd.DataFrame([user_input])
     input_df = input_df[features.columns]  # Ensure correct column order
