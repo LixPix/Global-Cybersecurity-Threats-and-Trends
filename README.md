@@ -7,7 +7,7 @@
 ## 🚀 **Live Dashboard Access**
 
 ### 🔗 **External Public Dashboard**
-**🎯 [OPEN CYBER THREAT DASHBOARD](https://share.streamlit.io/lixpix/global-cybersecurity-threats-and-trends/main/cyber_dashboard_final.py)**
+**🎯 [OPEN CYBER THREAT DASHBOARD](https://global-cybersecurity-threats-and-trends-5atw2v8vvixf4fgjqjhyeu.streamlit.app/)**
 
 *📱 **Accessible from anywhere** - This link works externally for assessors and stakeholders to view the interactive dashboard with real-time data analysis.*
 
@@ -463,7 +463,7 @@ The [UK alone records](https://www.gov.uk/government/statistics/cyber-security-b
 
 ### Streamlit Cloud Deployment
 
-**Live Dashboard:** [🔗 Cyber Threat Insight Portal](https://global-cybersecurity-threats.streamlit.app/) 
+**Live Dashboard:** [🔗 Cyber Threat Insight Portal](https://global-cybersecurity-threats-and-trends-5atw2v8vvixf4fgjqjhyeu.streamlit.app/) 
 
 **Local Development:** `streamlit run cyber_dashboard_final.py`
 
