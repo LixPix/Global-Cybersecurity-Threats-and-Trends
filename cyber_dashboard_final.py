@@ -18,7 +18,7 @@ from sklearn.metrics import classification_report, mean_absolute_error, accuracy
 df = pd.read_csv("data/clean_global_cybersecurity_threats.csv")
 
 # encode data
-df.fillna(method='ffill', inplace=True)
+df = df.ffill()  # Updated pandas syntax for forward fill
 
 label_encoders = {}
 for col in df.select_dtypes(include='object').columns:
@@ -47,66 +47,99 @@ Whether you're a **technical user** seeking to model attack outcomes, or a **non
 - 🧠 Decode complex trends into clear visuals
 """)
 
+# Interactive filtering tips
+with st.expander("💡 Chart Interaction Tips - Click to Learn How to Use Filters"):
+    st.markdown("""
+    ### 🎯 **How to Use Interactive Charts:**
+    
+    **📊 Attack Types & Industry Charts:**
+    - **Click on legend items** to show/hide specific attack types or industries
+    - **Double-click** on a legend item to show only that category
+    - **Hover** over bars for detailed values and percentages
+    - **Use zoom tools** to focus on specific time periods
+    
+    **💰 Financial Loss Chart:**
+    - **Hover** over points to see exact values and years
+    - **Use the toolbar** to zoom, pan, and reset view
+    - **Download** charts using the camera icon in the toolbar
+    
+    **🔍 Data Filtering Best Practices:**
+    - Compare different attack types by toggling legend items
+    - Identify trend patterns by focusing on specific industries
+    - Analyze seasonal patterns by zooming into specific years
+    """)
+
 # Decode for plotting
 df['Decoded_Attack'] = df['Attack Type']
 df['Decoded_Industry'] = df['Target Industry']
 
-# Attack trends - Improved visualization with stacked bar chart
+# Main Dashboard Visualizations
+st.subheader("🎯 Attack Types Over Time")
+st.markdown("**💡 Tip:** Click legend items to show/hide specific attack types. Double-click to isolate one type.")
+
 attack_data = df.groupby(['Year', 'Decoded_Attack']).size().unstack(fill_value=0)
 fig_attack = px.bar(
     attack_data.reset_index(),
     x='Year',
     y=attack_data.columns.tolist(),
-    title="Attack Types Over Time",
+    title="🔴 Cyber Attack Types Distribution by Year",
     labels={"value": "Number of Incidents", "Year": "Year"},
     color_discrete_sequence=px.colors.qualitative.Set3
 )
-# Format year axis to show integers only
 fig_attack.update_xaxes(dtick=1, tickformat='d')
+fig_attack.update_layout(
+    xaxis_title="Year",
+    yaxis_title="Number of Incidents",
+    legend_title="Attack Types",
+    hovermode='x unified'
+)
 st.plotly_chart(fig_attack, use_container_width=True)
 
-# Financial loss trends
+st.subheader("🏢 Target Industries Over Time")
+st.markdown("**💡 Tip:** Use legend filtering to compare vulnerability patterns across different industries.")
+
+industry_data = df.groupby(['Year', 'Decoded_Industry']).size().unstack(fill_value=0)
+fig_industry = px.bar(
+    industry_data.reset_index(),
+    x='Year',
+    y=industry_data.columns.tolist(),
+    title="🏭 Industry Targeting Patterns by Year",
+    labels={"value": "Number of Attacks", "Year": "Year"},
+    color_discrete_sequence=px.colors.qualitative.Pastel
+)
+fig_industry.update_xaxes(dtick=1, tickformat='d')
+fig_industry.update_layout(
+    xaxis_title="Year",
+    yaxis_title="Number of Attacks",
+    legend_title="Target Industries",
+    hovermode='x unified'
+)
+st.plotly_chart(fig_industry, use_container_width=True)
+
+st.subheader("� Financial Impact Analysis")
+st.markdown("**💡 Tip:** Hover over data points for exact financial impact values and trends.")
+
 financial_data = df.groupby('Year')['Financial Loss (in Million $)'].mean().reset_index()
-fig_loss = px.line(
+fig_financial = px.line(
     financial_data,
     x='Year',
     y='Financial Loss (in Million $)',
-    title="💰 Average Financial Loss per Year",
-    markers=True
+    title='💸 Average Financial Loss per Incident by Year',
+    markers=True,
+    line_shape='linear'
 )
-# Format year axis to show integers only
-fig_loss.update_xaxes(dtick=1, tickformat='d')
-st.plotly_chart(fig_loss, use_container_width=True)
-
-# Attack Type Trend - Improved with integer years
-attack_trend = df.groupby('Year')['Decoded_Attack'].value_counts().unstack().fillna(0)
-# Convert year index to integer for better display
-attack_trend.index = attack_trend.index.astype(int)
-st.subheader("📈 Attack Types Over Time")
-st.bar_chart(attack_trend)
-
-# Financial Loss Trend - Improved with integer years
-financial_trend = df.groupby('Year')['Financial Loss (in Million $)'].mean().reset_index()
-financial_trend['Year'] = financial_trend['Year'].astype(int)
-st.subheader("📊 Average Financial Loss Trends Over Time")
-
-# Create Plotly line chart with proper integer year formatting
-fig_financial = px.line(
-    financial_trend,
-    x='Year',
-    y='Financial Loss (in Million $)',
-    title='Average Financial Loss by Year',
-    markers=True
-)
-fig_financial.update_xaxes(
-    dtick=1,  # Show every year
-    tickmode='linear',
-    tickformat='d'  # Display as integers (no decimals)
-)
+fig_financial.update_xaxes(dtick=1, tickformat='d')
 fig_financial.update_layout(
     xaxis_title="Year",
     yaxis_title="Average Financial Loss (Million $)",
-    showlegend=False
+    showlegend=False,
+    hovermode='x'
+)
+fig_financial.update_traces(
+    mode='lines+markers',
+    marker=dict(size=8, color='darkred'),
+    line=dict(width=3, color='darkred'),
+    hovertemplate='<b>Year:</b> %{x}<br><b>Avg Loss:</b> $%{y:.2f}M<extra></extra>'
 )
 st.plotly_chart(fig_financial, use_container_width=True)
 
