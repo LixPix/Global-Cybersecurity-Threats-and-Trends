@@ -61,23 +61,9 @@ Whether you're a **technical user** seeking to model attack outcomes, or a **non
 # Interactive filtering tips
 with st.expander("💡 Chart Interaction Tips - Click to Learn How to Use Filters"):
     st.markdown("""
-    ### 🎯 **How to Use Interactive Charts:**
-    
-    **📊 Attack Types & Industry Charts:**
-    - **Click on legend items** to show/hide specific attack types or industries
-    - **Double-click** on a legend item to show only that category
-    - **Hover** over bars for detailed values and percentages
-    - **Use zoom tools** to focus on specific time periods
-    
-    **💰 Financial Loss Chart:**
-    - **Hover** over points to see exact values and years
-    - **Use the toolbar** to zoom, pan, and reset view
-    - **Download** charts using the camera icon in the toolbar
-    
-    **🔍 Data Filtering Best Practices:**
-    - Compare different attack types by toggling legend items
-    - Identify trend patterns by focusing on specific industries
-    - Analyze seasonal patterns by zooming into specific years
+    - **Click legend items** to show/hide specific attack types or industries
+    - **Double-click** on a legend item to show only that category  
+    - **Hover over bars** for detailed values and percentages
     """)
 
 # Decode for plotting
@@ -95,7 +81,8 @@ fig_attack = px.bar(
     y=attack_data.columns.tolist(),
     title="🔴 Cyber Attack Types Distribution by Year",
     labels={"value": "Number of Incidents", "Year": "Year"},
-    color_discrete_sequence=px.colors.qualitative.Set3
+    color_discrete_sequence=px.colors.qualitative.Set3,
+    barmode='group'  # This makes bars horizontal/grouped instead of stacked
 )
 fig_attack.update_xaxes(dtick=1, tickformat='d')
 fig_attack.update_layout(
@@ -116,7 +103,8 @@ fig_industry = px.bar(
     y=industry_data.columns.tolist(),
     title="🏭 Industry Targeting Patterns by Year",
     labels={"value": "Number of Attacks", "Year": "Year"},
-    color_discrete_sequence=px.colors.qualitative.Pastel
+    color_discrete_sequence=px.colors.qualitative.Pastel,
+    barmode='group'  # This makes bars horizontal/grouped instead of stacked
 )
 fig_industry.update_xaxes(dtick=1, tickformat='d')
 fig_industry.update_layout(
