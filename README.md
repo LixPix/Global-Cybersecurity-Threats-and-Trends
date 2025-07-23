@@ -17,6 +17,17 @@
 > 
 > **⚡ Live Features:** Interactive filtering, ML predictions, scenario simulation, data export
 
+### 🚨 **Troubleshooting External Access**
+
+**If you see "You do not have access to this app":**
+1. **App may be private** - Owner needs to set it to PUBLIC in Streamlit Cloud dashboard
+2. **Go to**: https://share.streamlit.io/ → Sign in → Find app → Settings → Make Public
+3. **Alternative**: Use local setup below if external access fails
+
+**For Assessment/Evaluation:**
+- If external link doesn't work, use local setup instructions below
+- Dashboard functionality is identical locally and on cloud
+
 ### 🛠️ **Streamlit Community Cloud Deployment**
 
 **Deployment Configuration:**

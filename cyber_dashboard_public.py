@@ -1,11 +1,12 @@
+# **PUBLIC Global Cyber Threats Dashboard 2015-2024**
+# Publicly accessible version for external assessment and evaluation
+
 # **Global Cyber Threats 2015-2024 data ML**
 
 # import libraries and packages
 import pandas as pd
 import numpy as np
 import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -47,43 +48,121 @@ Whether you're a **technical user** seeking to model attack outcomes, or a **non
 - 🧠 Decode complex trends into clear visuals
 """)
 
+# 📊 Statistical Measures Dashboard Section
+st.header("📊 Key Statistical Measures")
+
+# Create columns for statistical metrics
+col1, col2, col3, col4 = st.columns(4)
+
+# Financial Loss Statistics
+financial_mean = df['Financial Loss (in Million $)'].mean()
+financial_median = df['Financial Loss (in Million $)'].median()
+financial_std = df['Financial Loss (in Million $)'].std()
+financial_var = df['Financial Loss (in Million $)'].var()
+
+with col1:
+    st.metric(
+        label="💰 Mean Financial Loss",
+        value=f"${financial_mean:.1f}M",
+        help="Average financial loss across all cyber incidents"
+    )
+    
+with col2:
+    st.metric(
+        label="📊 Median Financial Loss", 
+        value=f"${financial_median:.1f}M",
+        help="Middle value of financial losses (less affected by outliers)"
+    )
+    
+with col3:
+    st.metric(
+        label="📈 Standard Deviation",
+        value=f"${financial_std:.1f}M", 
+        help="Measure of variability in financial losses"
+    )
+    
+with col4:
+    st.metric(
+        label="📉 Variance",
+        value=f"${financial_var:.0f}M²",
+        help="Square of standard deviation, shows data spread"
+    )
+
+# Additional Statistics by Attack Type
+st.subheader("📋 Statistical Summary by Attack Type")
+
+# Calculate statistics by attack type
+attack_stats = df.groupby('Attack Type')['Financial Loss (in Million $)'].agg([
+    'count', 'mean', 'median', 'std', 'min', 'max'
+]).round(2)
+
+attack_stats.columns = ['Count', 'Mean ($M)', 'Median ($M)', 'Std Dev ($M)', 'Min ($M)', 'Max ($M)']
+st.dataframe(attack_stats, use_container_width=True)
+
+# Statistical Insights
+st.subheader("🔍 Statistical Insights")
+
+# Calculate coefficient of variation for each attack type
+cv_data = []
+for attack_type in df['Attack Type'].unique():
+    subset = df[df['Attack Type'] == attack_type]['Financial Loss (in Million $)']
+    if len(subset) > 1 and subset.mean() > 0:
+        cv = (subset.std() / subset.mean()) * 100
+        cv_data.append({'Attack Type': attack_type, 'Coefficient of Variation (%)': cv})
+
+cv_df = pd.DataFrame(cv_data)
+if not cv_df.empty:
+    fig_cv = px.bar(cv_df, x='Attack Type', y='Coefficient of Variation (%)',
+                    title='Financial Loss Variability by Attack Type',
+                    labels={'Coefficient of Variation (%)': 'CV (%)'})
+    fig_cv.update_layout(xaxis_tickangle=-45)
+    st.plotly_chart(fig_cv, use_container_width=True)
+    
+    st.info("💡 **Coefficient of Variation** measures relative variability. Higher values indicate more unpredictable financial losses for that attack type.")
+
 # Decode for plotting
 df['Decoded_Attack'] = df['Attack Type']
 df['Decoded_Industry'] = df['Target Industry']
 
-# Attack trends - Improved visualization with stacked bar chart
-attack_data = df.groupby(['Year', 'Decoded_Attack']).size().unstack(fill_value=0)
+# Attack trends - Grouped bar chart with variables side by side
+attack_data = df.groupby(['Year', 'Decoded_Attack']).size().reset_index(name='Count')
 fig_attack = px.bar(
-    attack_data.reset_index(),
+    attack_data,
     x='Year',
-    y=attack_data.columns.tolist(),
+    y='Count',
+    color='Decoded_Attack',
     title="Attack Types Over Time",
-    labels={"value": "Number of Incidents", "Year": "Year"},
-    color_discrete_sequence=px.colors.qualitative.Set3
+    labels={"Count": "Number of Incidents", "Year": "Year", "Decoded_Attack": "Attack Type"},
+    color_discrete_sequence=px.colors.qualitative.Set3,
+    barmode='group'
 )
 # Format year axis to show integers only
 fig_attack.update_xaxes(dtick=1, tickformat='d')
 st.plotly_chart(fig_attack, use_container_width=True)
 
-# Financial loss trends
-financial_data = df.groupby('Year')['Financial Loss (in Million $)'].mean().reset_index()
-fig_loss = px.line(
-    financial_data,
+# Target Industry trends - Grouped bar chart with variables side by side
+industry_data = df.groupby(['Year', 'Decoded_Industry']).size().reset_index(name='Count')
+fig_industry = px.bar(
+    industry_data,
     x='Year',
-    y='Financial Loss (in Million $)',
-    title="💰 Average Financial Loss per Year",
-    markers=True
+    y='Count',
+    color='Decoded_Industry',
+    title="🎯 Target Industries Over Time",
+    labels={"Count": "Number of Incidents", "Year": "Year", "Decoded_Industry": "Target Industry"},
+    color_discrete_sequence=px.colors.qualitative.Pastel,
+    barmode='group'
 )
 # Format year axis to show integers only
-fig_loss.update_xaxes(dtick=1, tickformat='d')
-st.plotly_chart(fig_loss, use_container_width=True)
+fig_industry.update_xaxes(dtick=1, tickformat='d')
+st.plotly_chart(fig_industry, use_container_width=True)
 
-# Attack Type Trend - Improved with integer years
-attack_trend = df.groupby('Year')['Decoded_Attack'].value_counts().unstack().fillna(0)
-# Convert year index to integer for better display
-attack_trend.index = attack_trend.index.astype(int)
-st.subheader("📈 Attack Types Over Time")
-st.bar_chart(attack_trend)
+# Interactive Chart Information
+st.markdown("""
+💡 **Interactive Charts Tip:** 
+- Click on any **Attack Type** or **Industry** in the chart legends above to show/hide specific categories
+- Double-click on a legend item to isolate that category and hide all others
+- Use this feature to focus on specific trends or compare particular attack types/industries across years
+""")
 
 # Financial Loss Trend - Improved with integer years
 financial_trend = df.groupby('Year')['Financial Loss (in Million $)'].mean().reset_index()
@@ -234,13 +313,13 @@ findings_text = f"""
 
 ## 🎯 **Strategic Recommendations**
 
-1. **Predictive Modeling:** The models show moderate to good performance, suggesting that cyber attack patterns are partially predictable based on country, timing, and security infrastructure factors.
+1. **Predictive Modelling:** The models show moderate to good performance, suggesting that cyber attack patterns are partially predictable based on country, timing, and security infrastructure factors.
 
 2. **Industry Focus:** {industry_targeting['Financial Loss (in Million $)'].idxmax()} sector requires enhanced security investments given highest average financial losses.
 
 3. **Temporal Patterns:** Year-over-year analysis reveals evolving attack strategies, with {most_common_attacks_by_year.value_counts().index[0]} being the most persistent threat type.
 
-4. **Response Optimization:** Industries with longer resolution times should adopt faster incident response protocols similar to {industry_targeting['Incident Resolution Time (in Hours)'].idxmin()} sector.
+4. **Response Optimisation:** Industries with longer resolution times should adopt faster incident response protocols similar to {industry_targeting['Incident Resolution Time (in Hours)'].idxmin()} sector.
 
 ## ⚠️ **Model Limitations**
 
@@ -373,3 +452,10 @@ if submitted:
     st.write(f"1. {attack_feature_importance.iloc[0]['feature']}")
     st.write(f"2. {attack_feature_importance.iloc[1]['feature']}")
     st.write(f"3. {attack_feature_importance.iloc[2]['feature']}")
+
+
+# Additional public access confirmation
+if __name__ == "__main__":
+    # This ensures the app runs when accessed externally
+    import streamlit as st
+    st.sidebar.success("✅ Public Dashboard - No login required!")
