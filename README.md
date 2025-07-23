@@ -1,11 +1,12 @@
 # 🛡️ Global Cybersecurity Threats Analysis and ML Training
 
-**Global Cybersecurity Threats Analysis and M## 📈 Statistical Foundations## 🔬 Analysis Techniques Usedand Data Science Principles Training** is a data analysis and machine learning platform designed to analyse global cybersecurity incidents from 2015-2024 small dataset sample. The platform provides predictive capabilities for attack types, target industries, and financial losses whilst offering interactive visualisations for both technical and non-technical audiences.
+**Global Cybersecurity Threats Analysis and ML training** is a data analysis and machine learning platform designed to analyse global cybersecurity incidents from 2015-2024 small dataset sample. The platform provides predictive capabilities for attack types, target industries, and financial losses whilst offering interactive visualisations for both technical and non-technical audiences.
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-**Project Assessment Roadmap:** [Read me first](Comprehensive_Assessment_Criteria_Validation.md)
-**Live Dashboard:** [🔗 Cyber Threat Insight Portal](https://global-cybersecurity-threats.streamlit.app/) | **Local:** `streamlit run cyber_dashboard_final.py`
+- **Project Assessment Roadmap:** [Read me first](Comprehensive_Assessment_Criteria_Validation.md)
+- **Live Dashboard:** [🔗 Cyber Threat Insight Portal](https://global-cybersecurity-threats.streamlit.app/) | 
+- **Local:** `streamlit run cyber_dashboard_final.py`
 
 ## 📊 Dataset Content
 
