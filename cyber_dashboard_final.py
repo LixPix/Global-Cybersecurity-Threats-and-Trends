@@ -56,6 +56,26 @@ Whether you're a **technical user** seeking to model attack outcomes, or a **non
 - 🔍 Predict the **type of attack**, **targeted industry**, and **financial losses**
 - 📈 Explore attack patterns over time
 - 🧠 Decode complex trends into clear visuals
+
+---
+
+## 🎓 Academic Purpose & Scalability Framework
+
+**📚 Educational Context:**  
+This dashboard is built for **academic purposes** based on a limited data sample (3,001 incidents) to demonstrate data science methodologies, machine learning applications, and interactive visualization techniques in cybersecurity analytics.
+
+**🔄 Replication & Adaptation Potential:**  
+The framework and methodologies demonstrated here can be **replicated and adapted** for:
+
+- **🏢 Business Applications:** Corporate threat intelligence, risk assessment, and security investment planning
+- **🏭 Industry-Specific Solutions:** Sector-focused threat analysis (healthcare, banking, telecommunications, etc.)
+- **🌍 National/Regional Security:** Government cybersecurity planning and policy development
+- **🛡️ Enterprise Security:** Internal incident analysis and predictive security modeling
+- **📊 Research Institutions:** Academic studies on cybersecurity trends and threat evolution
+- **🚨 Security Operations Centers:** Real-time threat monitoring and response optimization
+
+**⚡ Scalability Features:**  
+With larger datasets and real-time data feeds, this framework can support enterprise-grade applications including automated threat detection, dynamic risk scoring, and strategic security planning for organizations of any size.
 """)
 
 # Interactive filtering tips
@@ -179,14 +199,95 @@ thr_preds = rf_thr.predict(X_test)
 
 st.subheader("🔍 Model Performance Reports")
 
-st.markdown("#### Attack Type")
-st.text(classification_report(y_attack_test, attack_preds, target_names=label_encoders['Attack Type'].classes_))
+# Calculate detailed performance metrics
+from sklearn.metrics import precision_recall_fscore_support
 
-st.markdown("#### Financial Loss")
-st.text(f"Mean Absolute Error: {mean_absolute_error(y_sev_test, sev_preds):.2f} Million $")
+# Attack Type Classification Performance
+attack_precision, attack_recall, attack_f1, _ = precision_recall_fscore_support(
+    y_attack_test, attack_preds, average='weighted'
+)
+attack_accuracy = accuracy_score(y_attack_test, attack_preds)
 
-st.markdown("#### Target Industry")
-st.text(classification_report(y_thr_test, thr_preds, target_names=label_encoders['Target Industry'].classes_))
+# Industry Classification Performance  
+industry_precision, industry_recall, industry_f1, _ = precision_recall_fscore_support(
+    y_thr_test, thr_preds, average='weighted'
+)
+industry_accuracy = accuracy_score(y_thr_test, thr_preds)
+
+# Financial Loss Regression Performance
+financial_mae = mean_absolute_error(y_sev_test, sev_preds)
+financial_r2 = r2_score(y_sev_test, sev_preds)
+financial_rmse = np.sqrt(np.mean((y_sev_test - sev_preds) ** 2))
+
+# Create performance summary table
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.markdown("#### 🎯 Attack Type Prediction")
+    attack_metrics = pd.DataFrame({
+        'Metric': ['Accuracy', 'Precision', 'Recall', 'F1-Score'],
+        'Score': [f"{attack_accuracy:.3f}", f"{attack_precision:.3f}", 
+                 f"{attack_recall:.3f}", f"{attack_f1:.3f}"],
+        'Percentage': [f"{attack_accuracy:.1%}", f"{attack_precision:.1%}", 
+                      f"{attack_recall:.1%}", f"{attack_f1:.1%}"]
+    })
+    st.dataframe(attack_metrics, use_container_width=True, hide_index=True)
+
+with col2:
+    st.markdown("#### 🏭 Industry Prediction")
+    industry_metrics = pd.DataFrame({
+        'Metric': ['Accuracy', 'Precision', 'Recall', 'F1-Score'],
+        'Score': [f"{industry_accuracy:.3f}", f"{industry_precision:.3f}", 
+                 f"{industry_recall:.3f}", f"{industry_f1:.3f}"],
+        'Percentage': [f"{industry_accuracy:.1%}", f"{industry_precision:.1%}", 
+                      f"{industry_recall:.1%}", f"{industry_f1:.1%}"]
+    })
+    st.dataframe(industry_metrics, use_container_width=True, hide_index=True)
+
+with col3:
+    st.markdown("#### 💸 Financial Loss Prediction")
+    financial_metrics = pd.DataFrame({
+        'Metric': ['R² Score', 'MAE (Million $)', 'RMSE (Million $)', 'Explained Variance'],
+        'Value': [f"{financial_r2:.3f}", f"{financial_mae:.2f}", 
+                 f"{financial_rmse:.2f}", f"{financial_r2:.1%}"]
+    })
+    st.dataframe(financial_metrics, use_container_width=True, hide_index=True)
+
+# Detailed classification reports in expandable sections
+with st.expander("📊 Detailed Classification Reports (Click to expand)"):
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("**🎯 Attack Type - Detailed Report**")
+        attack_report_df = pd.DataFrame(
+            classification_report(
+                y_attack_test, attack_preds, 
+                target_names=label_encoders['Attack Type'].classes_,
+                output_dict=True
+            )
+        ).transpose()
+        # Round numeric columns for better display
+        numeric_cols = ['precision', 'recall', 'f1-score']
+        for col in numeric_cols:
+            if col in attack_report_df.columns:
+                attack_report_df[col] = attack_report_df[col].round(3)
+        st.dataframe(attack_report_df, use_container_width=True)
+    
+    with col2:
+        st.markdown("**🏭 Target Industry - Detailed Report**")
+        industry_report_df = pd.DataFrame(
+            classification_report(
+                y_thr_test, thr_preds, 
+                target_names=label_encoders['Target Industry'].classes_,
+                output_dict=True
+            )
+        ).transpose()
+        # Round numeric columns for better display
+        for col in numeric_cols:
+            if col in industry_report_df.columns:
+                industry_report_df[col] = industry_report_df[col].round(3)
+        st.dataframe(industry_report_df, use_container_width=True)
 
 # Calculate additional metrics for analysis
 # Calculate performance metrics
@@ -231,6 +332,9 @@ industry_targeting = df.groupby('Target Industry').agg({
 
 # Create findings text box
 st.subheader("📊 Machine Learning Analysis & Key Findings")
+
+# Add scroll disclaimer
+st.info("📜 **Navigation Tip:** This is a comprehensive analysis report. Please **scroll down within the text box below** to read the complete findings, trends analysis, strategic recommendations, and model limitations.")
 
 findings_text = f"""
 ## 🔍 **Model Performance Analysis**
