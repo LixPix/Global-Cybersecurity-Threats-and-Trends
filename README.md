@@ -1,8 +1,51 @@
 # 🛡️ Global Cybersecurity Threats Analysis and ML Training
 
-**Global Cybersecurity Threats Analysis and ML training** is a data analysis and machine learning platform designed to analyse global cybersecurity incidents from 2015-2024 small dataset sample. The platform provides predictive capabilities for attack types, target industries, and financial losses whilst offering interactive visualisations for both technical and non-technical audiences.
+**Global Cybersecurity Threats Analysis and ML training** is a data analysis and machine learning platform, based on a Kaggle small data sample designed to analyse global cybersecurity incidents from 2015-2024. The platform provides predictive capabilities for attack types, target industries, and financial losses whilst offering interactive visualisations for both technical and non-technical audiences.
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+
+---
+
+## 📚 Table of Contents
+
+### 🔍 **Project Overview & Access**
+- [🚀 **Live Dashboard Access**](#-live-dashboard-access) - Direct access to interactive cybersecurity dashboard
+- [📊 **Dataset Content**](#-dataset-content) - Overview of the 3,001 cybersecurity incidents analyzed
+
+### 🎯 **Project Foundation**
+- [🎯 **Business Requirements**](#-business-requirements) - Five key business objectives and deliverables
+- [🔬 **Hypothesis and Validation**](#-hypothesis-and-validation) - Four validated research hypotheses with evidence
+- [📋 **Project Plan**](#-project-plan) - Comprehensive data management pipeline and research methodologies
+
+### 📊 **Technical Analysis**
+- [🗺️ **Business Requirements to Data Visualizations Mapping**](#️-business-requirements-to-data-visualizations-mapping) - Mapping business needs to visual solutions
+- [📈 **Statistical Foundations and Data Science Principles**](#-statistical-foundations-and-data-science-principles) - Core statistical concepts and rigorous implementation
+- [🔬 **Analysis Techniques Used**](#-analysis-techniques-used) - Machine learning algorithms and statistical methods applied
+
+### 🤖 **AI & Ethics Framework**
+- [⚖️ **Ethical Considerations and Responsible AI**](#️-ethical-considerations-and-responsible-ai) - Comprehensive ethical framework and bias mitigation
+- [🎨 **Dashboard Design**](#-dashboard-design) - User experience architecture and interactive components
+
+### 🚀 **Development & Deployment**
+- [🐛 **Unfixed Bugs**](#-unfixed-bugs) - Known issues and workarounds
+- [🚀 **Development Roadmap**](#-development-roadmap) - Challenges overcome and future enhancements
+- [🚀 **Deployment**](#-deployment) - Streamlit Cloud deployment configuration and optimization
+
+### 📚 **Technical Resources**
+- [📚 **Main Data Analysis Libraries**](#-main-data-analysis-libraries) - Core Python libraries and frameworks used
+- [📈 **Key Findings & Model Performance**](#-key-findings--model-performance) - Machine learning results and business insights
+
+### 🏆 **Methodology & Validation**
+- [🔬 **CRISP-DM Methodology Implementation**](#-crisp-dm-methodology-implementation) - Six-phase data mining methodology
+- [📊 **Statistical Analysis & Model Validation**](#-statistical-analysis--model-validation) - Hypothesis testing and performance metrics
+- [🎯 **Business Impact & Value Proposition**](#-business-impact--value-proposition) - Quantified benefits and stakeholder value
+- [📋 **Quality Assurance & Testing**](#-quality-assurance--testing) - Data quality validation and testing frameworks
+
+### 🙏 **Credits & Acknowledgements**
+- [🙏 **Credits**](#-credits) - Content sources and technical resources
+- [🏆 **Acknowledgements**](#-acknowledgements) - Recognition of contributors and frameworks
+
+---
 
 ## 🚀 **Live Dashboard Access**
 
@@ -17,32 +60,6 @@
 > 
 > **⚡ Live Features:** Interactive filtering, ML predictions, scenario simulation, data export
 
-### 🚨 **Troubleshooting External Access**
-
-**If you see "You do not have access to this app":**
-1. **App may be private** - Owner needs to set it to PUBLIC in Streamlit Cloud dashboard
-2. **Go to**: https://share.streamlit.io/ → Sign in → Find app → Settings → Make Public
-3. **Alternative**: Use local setup below if external access fails
-
-**For Assessment/Evaluation:**
-- If external link doesn't work, use local setup instructions below
-- Dashboard functionality is identical locally and on cloud
-
-### 🛠️ **Streamlit Community Cloud Deployment**
-
-**Deployment Configuration:**
-- **Platform:** [Streamlit Community Cloud](https://streamlit.io/cloud)
-- **Repository:** `LixPix/Global-Cybersecurity-Threats-and-Trends`
-- **Branch:** `main`
-- **Entry Point:** `cyber_dashboard_final.py`
-- **Auto-Deploy:** Enabled on GitHub commits
-
-**✅ Deployment Status:**
-- [x] GitHub repository connected
-- [x] Dependencies installed automatically
-- [x] SSL certificate active
-- [x] External access verified
-- [x] Performance optimized
 
 ### 📁 **Alternative Access Methods**
 - **Local Installation:** 
